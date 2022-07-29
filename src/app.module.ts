@@ -6,8 +6,8 @@ import { AppService } from './app.service';
 import { User } from './entity/user.entity';
 
 @Module({
-  imports: [TypeOrmModule.forRoot({
-
+  imports: [
+    TypeOrmModule.forRoot({
     "type":"mysql",
       "host":"localhost",
       "port":3306,

@@ -2,13 +2,20 @@
 import { Controller, Get } from '@nestjs/common';
 import { AppService } from './app.service';
 
+//@Controller('user')
 @Controller()
 export class AppController {
-  constructor(private appService: AppService) {}
+  constructor(private appservice: AppService) {}
+
+  // @Get()
+  // async findAll()  {
+  //   const response=await this.appservice.findAll();
+  //   return response;
+  // }
 
   @Get()
-  async findAll()  {
-    return this.appService.findAll();
+  findAll()  {
+    return this.appservice.findAll();
   }
 
   // @Get(":id")
