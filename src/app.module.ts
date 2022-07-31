@@ -13,7 +13,7 @@ import { User } from './entity/user.entity';
       "port":3306,
       "username":"root",
       "password":"root",
-      "database":"nestjs",
+      "database":"test_nest_db",
       "entities" :[User],
       "synchronize":true
      }),TypeOrmModule.forFeature([User])

@@ -12,24 +12,58 @@ export class AppService {
     private userRepository: Repository<User>,
 ){}
 
-findAll() : Promise<User[]>{
-  return this.userRepository.find();
+async findAll() : Promise<User[]>{
+  return await this.userRepository.find();
  }
 
-// findOne(id: number):Promise<User>{
-//     return this.userRepository.findOne({ where: { id: id } })
+ findOne(id:number):Promise<User>{
+  return this.userRepository.findOneBy({id : id});
+}
+
+ //  async findOne(id:number):Promise<User>{
+//   return await this.userRepository.findOne({
+//         where :{id:id},
+//   });
 // }
 
-// create(user:User): Promise<User>{
-//     return this.userRepository.save(user);
+//  async findOne(id:number):Promise<User>{
+//   return await this.userRepository.findOne({
+//         where :{id:id},
+//   });
+// }
+//  async findOne(id:number):Promise<User>{
+//   return await this.userRepository.findOne({
+//     select :{id:true,name:true,},
+//     where :{id:id,},
+//   });
 // }
 
-// async update(id: number,user:User){
-// await this.userRepository.update(id,user);
+//  async findOne(id:number):Promise<User>{
+//     return await this.userRepository.findOne({
+//       select :['id','name','email'],
+//       where :{id,},
+//     });
+//   }
+
+// async findOne(id:number):Promise<User>{
+//   return await this.userRepository.findOne({ where :{id : id}});
 // }
 
-// async remove(id: number):Promise<void>{
-// await this.userRepository.delete(id);   
+// async findOne(id:number):Promise<User>{
+//   return await this.userRepository.findOneBy({id : id});
 // }
+
+
+create(user:User): Promise<User>{
+    return this.userRepository.save(user);
+}
+
+async update(id: number,user:User){
+await this.userRepository.update(id,user);
+}
+
+async remove(id: number):Promise<void>{
+await this.userRepository.delete(id);   
+}
 
 }
